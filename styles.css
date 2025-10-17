@@ -214,26 +214,70 @@ a:hover { text-decoration: underline; }
 .hero__text { color: var(--muted); margin: 0 auto; max-width: 70ch; font-size: 1.1rem; }
 .hero__actions { margin-top: 24px; display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
 
+/* New hero grid */
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: center;
+}
+@media (min-width: 960px) {
+  .hero__grid { grid-template-columns: 1.1fr 1fr; gap: 36px; }
+  .hero__left { text-align: left; }
+  .hero__actions { justify-content: flex-start; }
+}
+.hero__right { display: grid; place-items: center; }
+.hero-media {
+  margin: 0;
+  padding: 10px;
+  border-radius: 18px;
+  background:
+    linear-gradient(var(--bg-elev), var(--bg-elev)) padding-box,
+    linear-gradient(135deg, color-mix(in oklab, var(--brand) 70%, #fff 5%), color-mix(in oklab, var(--accent) 70%, #fff 5%)) border-box;
+  border: 2px solid transparent;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+}
+.hero-media__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
 /* Avatar */
 .avatar {
   display: grid;
   place-items: center;
   margin: 0 auto 20px;
   position: relative;
+  padding: 4px;
+  border-radius: 18px;
+  /* Dual-background trick for a refined gradient ring */
+  background:
+    linear-gradient(var(--bg), var(--bg)) padding-box,
+    linear-gradient(135deg,
+      color-mix(in oklab, var(--brand) 85%, #ffffff 5%),
+      color-mix(in oklab, var(--accent) 85%, #ffffff 5%)
+    ) border-box;
+  border: 2px solid transparent;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+  transition: box-shadow .25s ease;
 }
 .avatar__img {
   width: 128px;
   height: 128px;
-  border-radius: 50%;
+  border-radius: 14px;
   object-fit: cover;
-  border: 3px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-  background: var(--card);
+  border: 1px solid var(--border);
+  display: block;
   position: relative;
   z-index: 1;
-  transition: transform .3s ease;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.28);
+  transition: transform .25s ease, box-shadow .25s ease;
 }
-.avatar__img:hover { transform: scale(1.05); }
+.avatar:hover { box-shadow: 0 10px 32px rgba(0,0,0,0.3); }
+.avatar__img:hover { transform: scale(1.02); box-shadow: 0 12px 36px rgba(0,0,0,0.35); }
 @media (min-width: 640px) {
   .avatar__img { width: 148px; height: 148px; }
 }
