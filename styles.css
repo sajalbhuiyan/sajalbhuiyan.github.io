@@ -221,28 +221,19 @@ a:hover { text-decoration: underline; }
   margin: 0 auto 20px;
   position: relative;
 }
-.avatar::before {
-  content: "";
-  position: absolute;
-  inset: -8px;
-  background: linear-gradient(135deg, var(--brand), var(--accent));
-  border-radius: 50%;
-  opacity: 0.3;
-  filter: blur(20px);
-}
 .avatar__img {
   width: 128px;
   height: 128px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--brand);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4), var(--glow);
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
   background: var(--card);
   position: relative;
   z-index: 1;
   transition: transform .3s ease;
 }
-.avatar__img:hover { transform: scale(1.05) rotate(2deg); }
+.avatar__img:hover { transform: scale(1.05); }
 @media (min-width: 640px) {
   .avatar__img { width: 148px; height: 148px; }
 }
